@@ -27,10 +27,11 @@ The Puppet module provides a quick way to manage your Puppet Agents.
 
 * package/service/configuration files for Puppet
 * puppet's configuration
-  * **note** this will cause your puppet.conf to be overwritten (see **Usage** below for options and more information )
+  * **note** this will cause your puppet.conf to be overwritten 
+  * See **Usage** below for options and more information
 * service configuration files
 
-###Setup Requirements **OPTIONAL**
+###Setup Requirements
 
 Requires 'puppetlabs-stdlib'
 
@@ -48,15 +49,20 @@ The `puppet::agent` class is intended as a high-level abstraction to help simpli
 
 ####`master`
 
-The hostname or IP address of the database server (defaults to `puppet`).
+The hostname or IP address of the database server.
+
+* Default value: ''
 
 ####`environment`
 
-The ruby / puppet environment (defaults to `production`).
+The ruby / puppet environment.
+
+* Default value: production
 
 ####`pluginsync`
 
-Whether plugins should be synced with the central server.
+Whether plugins should be synced with the central server. In a masterless configuration `pluginsync` can replicate the functionality as it does not exist in `puppet apply` by default.
+
 * Default: true
 * Valid values: `true` or `false`
 
@@ -97,27 +103,27 @@ Whether to store each client’s configuration, including catalogs, facts, and rel
 
 Configure the backend terminus used for StoreConfigs.
 
-Default value: puppetdb
+* Default value: puppetdb
 
 ####`service_ensure`
 
 Whether the Puppet Agent service should be running.
 
-Default value: false
-Valid values: `stoppped` or `running`
+* Default value: false
+* Valid values: `stoppped` or `running`
 
 ####`service_enable`
 
 Whether a service should be enabled to start at boot.
 
-Default value: false
-Valid value: `true` or `false`
+* Default value: false
+* Valid value: `true` or `false`
 
 ####`package_ensure`
 What state the package should be in.
 
-Default value: present
-Valid values: `present` or `latest`
+* Default value: present
+* Valid values: `present` or `latest`
 
 ####`package_name`
 
