@@ -1,3 +1,5 @@
+puppet [![Build Status](https://travis-ci.org/dsn/puppet-puppet.svg?branch=master)](https://travis-ci.org/dsn/puppet-puppet)
+======
 ####Table of Contents
 
 1. [Overview](#overview)
