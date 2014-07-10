@@ -45,6 +45,10 @@ Clone this repository into your modulepath
 
 The `puppet::agent` class is intended as a high-level abstraction to help simplify the process of managing your puppet agents.
 
+```puppet
+class { 'puppet::agent': }
+```
+
 **Parameters within `puppet::agent`:**
 
 ####`master`
@@ -129,14 +133,17 @@ The package name. Could vary by operating systems
 
 Default value: puppet
 
-#####Samples
-######Masterless
+##Reference
+
+Below are various sample uses for the module.
+
+###Masterless
 
 ```puppet
 class { 'puppet::agent': }
 ```
 
-######Agent with Running Services
+###Agent with Running Services
 
 ```puppet
   class { 'puppet::agent':
@@ -146,9 +153,9 @@ class { 'puppet::agent': }
   }
 ```
 
-######Hiera Samples
+###Hiera Samples
 
-#######Agent
+####Agent
 ```yaml
 ---
 classes:
@@ -159,7 +166,7 @@ puppet::agent::service_enable: 'true'
 puppet::agent::service_ensure: 'running'
 ```
 
-#######Masterless
+####Masterless
 
 ```yaml
 ---
