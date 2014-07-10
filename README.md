@@ -33,7 +33,7 @@ The Puppet module provides a quick way to manage your Puppet Agents.
 
 ###Setup Requirements
 
-Requires 'puppetlabs-stdlib'
+* `puppetlabs-stdlib`
 
 ###Beginning with puppet
 
@@ -49,9 +49,7 @@ The `puppet::agent` class is intended as a high-level abstraction to help simpli
 
 ####`master`
 
-The hostname or IP address of the database server.
-
-* Default value: ''
+The hostname or IP address of the database server. Leave empty to run in a masterless configuration.
 
 ####`environment`
 
@@ -132,6 +130,8 @@ The package name. Could vary by operating systems
 Default value: puppet
 
 ##Limitations
+
+Does not manage routes.yaml, hiera.yaml, or puppetdb.conf
 
 Currently Puppet is compatible with
 
