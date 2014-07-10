@@ -1,0 +1,27 @@
+###
+## This File is Managed by Puppet
+## DO NOT MODIFY THIS FILE DIRECTLY
+####
+## Author: Gary Steven
+## Descr : Puppet Agent Configuration
+###
+[main]
+    storeconfigs         = <%= @storeconfigs %>
+    storeconfigs_backend = <%= @storeconfigs_backend %>
+    reports              = <%= @reports %>
+    confdir              = <%= scope.lookupvar('puppet::confdir') %>
+    logdir               = <%= scope.lookupvar('puppet::logdir') %>
+    rundir               = <%= scope.lookupvar('puppet::rundir') %>
+    ssldir               = <%= scope.lookupvar('puppet::ssldir') %>
+
+[agent]
+<% if @master != '' -%>
+    server               = <%= @master %>
+    runinterval          = <%= @runinterval %>
+<% end -%>
+    graph                = <%= @graph %>
+    report               = <%= @report %>
+    pluginsync           = <%= @pluginsync %>
+    environment          = <%= @environment %>
+    classfile            = $vardir/classes.txt
+    localconfig          = $vardir/localconfig

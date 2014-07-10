@@ -1,0 +1,13 @@
+###
+## This File is Managed by Puppet
+## DO NOT MODIFY THIS FILE DIRECTLY
+####
+## Author: Gary Steven
+## Descr : Puppet Agent Service Defaults
+###
+<% if scope.lookupvar('::osfamily') == 'Debian' -%>
+START=yes
+DAEMON_OPTS="agent --environment=<%= @environment %>"
+<% else -%>
+PUPPET_EXTRA_OPTS="--environment=<%= @environment %>"
+<% end -%>

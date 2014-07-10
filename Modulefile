@@ -1,0 +1,8 @@
+name         'gsteven-puppet'
+version      '1.0.5'
+author       'Gary Steven'
+license      'Apache 2.0'
+summary      'Puppet Module to Manage Puppet Agent Configuration'
+project_page ''
+source       ''
+dependency   'puppetlabs/stdlib', '>=3.2.0 <5.0.0'
