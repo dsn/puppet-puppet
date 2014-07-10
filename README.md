@@ -34,7 +34,8 @@ The Puppet module provides a quick way to manage your Puppet Agents.
 
 ###Setup Requirements
 
-This module requires the Puppet Labs `stdlib` module which you can install with
+This module requires the Puppet Labs stdlib module which you can install with
+
 ```puppet module install puppetlabs-stdlib```
 
 ###Beginning with puppet
@@ -72,7 +73,7 @@ Whether plugins should be synced with the central server. In a masterless config
 
 ####`runinterval`
 
-How often puppet agent applies the catalog. Note that a runinterval of 0 means “run continuously” rather than “never run.” If you want puppet agent to never run, you should start it with the --no-client option. This setting can be a time interval in seconds (30 or 30s), minutes (30m), hours (6h), days (2d), or years (5y).
+How often puppet agent applies the catalog. Note that a runinterval of 0 means "run continuously" rather than "never run." If you want puppet agent to never run, you should start it with the --no-client option. This setting can be a time interval in seconds (30 or 30s), minutes (30m), hours (6h), days (2d), or years (5y).
 
 * Default: `30m`
 
@@ -98,7 +99,7 @@ The list of report handlers to use. When using multiple report handlers, their n
 
 ####`storeconfigs`
 
-Whether to store each client’s configuration, including catalogs, facts, and related data. This also enables the import and export of resources in the Puppet language - a mechanism for exchange resources between nodes.
+Whether to store each client's configuration, including catalogs, facts, and related data. This also enables the import and export of resources in the Puppet language - a mechanism for exchange resources between nodes.
 
 * Default: `false`
 * Valid values: `true` or `false`
