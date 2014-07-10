@@ -2,6 +2,17 @@ require 'rake'
 require 'puppet'
 require 'puppet/module_tool'
 require 'rspec/core/rake_task'
+require 'puppetlabs_spec_helper/rake_tasks'
+
+# Remove Tasks from puppet_spec_helper
+Rake::Task['beaker'].clear
+Rake::Task['beaker_nodes'].clear
+Rake::Task['build'].clear
+Rake::Task['coverage'].clear
+Rake::Task['spec'].clear
+Rake::Task['spec_standalone'].clear
+Rake::Task['syntax'].clear
+Rake::Task['validate'].clear
 
 @path = File.expand_path('.')
 
@@ -229,7 +240,7 @@ task :check_plugins do
 end
 
 # Puppet Lint
-task :check_lint do 
+task :lint do 
   output = []
   success  = 0
   failures = 0
@@ -314,4 +325,4 @@ desc 'Bump Module Version'
 task :bump => [ :version_bump, :generate_metadata ]
 
 desc 'Validate Module'
-task :test => [ :check_layout, :check_syntax, :check_lint, :check_templates, :check_plugins, :spec ]
+task :test => [ :check_layout, :check_syntax, :lint, :check_templates, :check_plugins, :spec ]

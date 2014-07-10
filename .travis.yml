@@ -7,7 +7,7 @@ rvm:
   - 1.9.3
   - 2.0.0
   - 2.1.2
-script: ls -lah spec && ls -lah spec/fixtures/modules && bundle exec rake spec
+script: bundle exec rake spec_prep && bundle exec rake spec
 env:
   - PUPPET_VERSION="~> 2.7.0"
   - PUPPET_VERSION="~> 3.2.0"
