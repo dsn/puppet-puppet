@@ -197,6 +197,7 @@ Rake tasks have been created to assist in testing your module during development
 
 Tasks:
 
-* test - Run Lint, Syntax Tests
-* spec - Run Unit Tests (RSpec)
-* bump - Bump Module Version
+* test      - Run Lint, Syntax Tests
+* spec_prep - Setup Fixtures for Testing
+* spec      - Run Unit Tests (RSpec)
+* bump      - Bump Module Version
