@@ -2,7 +2,7 @@
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with puppet(#setup)
+3. [Setup - The basics of getting started with puppet](#setup)
     * [What puppet affects](#what-puppet-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with puppet](#beginning-with-puppet)
@@ -13,7 +13,9 @@
 
 ##Overview
 
-This module is designed to provide quick and easy management of Puppet in Agent or Masterless Configurations.
+This module is designed to provide quick and easy management of Puppet in agent or masterless modes.
+
+Replicate pluginsync functionality in masterless puppet.
 
 ##Module Description
 
@@ -25,8 +27,8 @@ The Puppet module provides a quick way to manage your Puppet Agents.
 
 * package/service/configuration files for Puppet
 * puppet's configuration
-* service sysconfig defaults
-* replicate pluginsync in masterless
+  * **note** this will cause your puppet.conf to be overwritten (see **Usage** below for options and more information )
+* service configuration files
 
 ###Setup Requirements **OPTIONAL**
 
@@ -34,12 +36,13 @@ Requires 'puppetlabs-stdlib'
 
 ###Beginning with puppet
 
-Clone this repository to your modulepath   
+Clone this repository into your modulepath   
 
 ##Usage
 
 ### puppet::agent
-The `puppet::agent` class is intended as a high-level abstraction to ease in the management of Puppet
+
+The `puppet::agent` class is intended as a high-level abstraction to help simplify the process of managing your puppet agents.
 
 **Parameters within `puppet::agent`:**
 
@@ -55,7 +58,7 @@ The ruby / puppet environment (defaults to `production`).
 
 Whether plugins should be synced with the central server.
 * Default: true
-* Valid values: `true|false`
+* Valid values: `true` or `false`
 
 ####`runinterval`
 
@@ -63,30 +66,72 @@ How often puppet agent applies the catalog. Note that a runinterval of 0 means “
 
 * Default: 30m
 
-Valid values are 
-  $ensure               = $puppet::params::service_ensure,
-  $enable               = $puppet::params::service_enable,
-  $runinterval          = $puppet::params::runinterval,
-  $graph                = $puppet::params::graph,
-  $report               = $puppet::params::report,
-  $reports              = $puppet::params::reports,
-  $storeconfigs         = $puppet::params::storeconfigs,
-  $storeconfigs_backend = $puppet::params::storeconfigs_backend
-The address that the web server should bind to for HTTP requests (defaults to `localhost`.'0.0.0.0' = all).
+####`graph`
 
+Whether to create dot graph files for the different configuration graphs. These dot files can be interpreted by tools like OmniGraffle or dot (which is part of ImageMagick).
 
-##Reference
+* Default: false
+* Valid values: `true` or `false`
 
-Here, list the classes, types, providers, facts, etc contained in your module. This section should include all of the under-the-hood workings of your module so people know what the module is touching on their system but don't need to mess with things. (We are working on automating this section!)
+####`report`
+
+Whether to send reports after every transaction.
+
+* Default: true
+* Valid values: `true` or `false`
+
+####`reports`
+
+The list of report handlers to use. When using multiple report handlers, their names should be comma-separated, with whitespace allowed. (For example, reports = http, tagmail.)
+
+* Default: store
+
+####`storeconfigs`
+
+Whether to store each client’s configuration, including catalogs, facts, and related data. This also enables the import and export of resources in the Puppet language - a mechanism for exchange resources between nodes.
+
+* Default: false
+* Valid values: `true` or `false`
+
+####`storeconfigs_backend`
+
+Configure the backend terminus used for StoreConfigs.
+
+Default value: puppetdb
+
+####`service_ensure`
+
+Whether the Puppet Agent service should be running.
+
+Default value: false
+Valid values: `stoppped` or `running`
+
+####`service_enable`
+
+Whether a service should be enabled to start at boot.
+
+Default value: false
+Valid value: `true` or `false`
+
+####`package_ensure`
+What state the package should be in.
+
+Default value: present
+Valid values: `present` or `latest`
+
+####`package_name`
+
+The package name. Could vary by operating systems
+
+Default value: puppet
 
 ##Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+Currently Puppet is compatible with
 
-##Development
+```Puppet Version: 2.7+```
 
-Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
-
-##Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You may also add any additional sections you feel are necessary or important to include here. Please use the `## ` header. 
+Platforms:
+* CentOS 6
+* Fedora 18
+* RHEL 6
