@@ -10,6 +10,7 @@ GEM
   specs:
     diff-lcs (1.2.5)
     json_pure (1.8.1)
+    puppet-lint (0.3.2)
     rake (10.3.2)
     rspec (2.99.0)
       rspec-core (~> 2.99.0)
@@ -25,6 +26,7 @@ PLATFORMS
 
 DEPENDENCIES
   json_pure
+  puppet-lint
   rake
   rspec (< 3.0.0)
   rspec-puppet!
