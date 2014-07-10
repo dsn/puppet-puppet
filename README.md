@@ -47,15 +47,19 @@ The `puppet::agent` class is intended as a high-level abstraction to help simpli
 
 ####Masterless
 
-```class { 'puppet::agent': }```
+```puppet
+class { 'puppet::agent': }
+```
 
 ####Agent with Running Services
 
-```class { 'puppet::agent':
-     master         => 'puppet',
-	 service_enable => 'true',
-	 service_ensure => 'running'
-   }```
+```puppet
+  class { 'puppet::agent':
+    master         => 'puppet',
+	service_enable => 'true',
+	service_ensure => 'running'
+  }
+```
 
 ####Hiera Sample
 ```yaml
