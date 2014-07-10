@@ -61,17 +61,26 @@ class { 'puppet::agent': }
   }
 ```
 
-####Hiera Sample
+####Hiera Samples
+
+#####Agent
 ```yaml
 ---
 classes:
   - puppet::agent
 
-puppet::agent::master: 'puppet'
+puppet::agent::master:         'puppet'
 puppet::agent::service_enable: 'true'
 puppet::agent::service_ensure: 'running'
 ```
+
+#####Masterless
 **Parameters within `puppet::agent`:**
+```yaml
+---
+classes:
+  - puppet::agent
+```
 
 ####`master`
 
