@@ -45,42 +45,7 @@ Clone this repository into your modulepath
 
 The `puppet::agent` class is intended as a high-level abstraction to help simplify the process of managing your puppet agents.
 
-####Masterless
-
-```puppet
-class { 'puppet::agent': }
-```
-
-####Agent with Running Services
-
-```puppet
-  class { 'puppet::agent':
-    master         => 'puppet',
-	service_enable => 'true',
-	service_ensure => 'running'
-  }
-```
-
-####Hiera Samples
-
-#####Agent
-```yaml
----
-classes:
-  - puppet::agent
-
-puppet::agent::master:         'puppet'
-puppet::agent::service_enable: 'true'
-puppet::agent::service_ensure: 'running'
-```
-
-#####Masterless
 **Parameters within `puppet::agent`:**
-```yaml
----
-classes:
-  - puppet::agent
-```
 
 ####`master`
 
@@ -164,6 +129,43 @@ The package name. Could vary by operating systems
 
 Default value: puppet
 
+#####Samples
+######Masterless
+
+```puppet
+class { 'puppet::agent': }
+```
+
+######Agent with Running Services
+
+```puppet
+  class { 'puppet::agent':
+    master         => 'puppet',
+	service_enable => 'true',
+	service_ensure => 'running'
+  }
+```
+
+######Hiera Samples
+
+#######Agent
+```yaml
+---
+classes:
+  - puppet::agent
+
+puppet::agent::master:         'puppet'
+puppet::agent::service_enable: 'true'
+puppet::agent::service_ensure: 'running'
+```
+
+#######Masterless
+
+```yaml
+---
+classes:
+  - puppet::agent
+```
 ##Limitations
 
 Does not manage routes.yaml, hiera.yaml, or puppetdb.conf
