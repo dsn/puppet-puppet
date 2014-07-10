@@ -194,8 +194,6 @@ Rake tasks have been created to assist in testing your module during development
 
 Tasks:
 
-* test - Run a battery of tests against your module
+* test - Run Lint, Syntax Tests
 * spec - Run Unit Tests (RSpec)
-* lint - Check Puppet Manifest Style
-* syntax - Check Puppet Manifests Syntax
-* 
+* bump - Bump Module Version
