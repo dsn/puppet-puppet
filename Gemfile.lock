@@ -9,9 +9,18 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
+    facter (2.1.0)
+    hiera (1.3.4)
+      json_pure
     json_pure (1.8.1)
+    puppet (3.6.2)
+      facter (> 1.6, < 3)
+      hiera (~> 1.0)
+      json_pure
+      rgen (~> 0.6.5)
     puppet-lint (0.3.2)
     rake (10.3.2)
+    rgen (0.6.6)
     rspec (2.99.0)
       rspec-core (~> 2.99.0)
       rspec-expectations (~> 2.99.0)
@@ -26,6 +35,7 @@ PLATFORMS
 
 DEPENDENCIES
   json_pure
+  puppet
   puppet-lint
   rake
   rspec (< 3.0.0)
